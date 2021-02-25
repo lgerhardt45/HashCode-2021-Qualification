@@ -3,6 +3,8 @@ from classes import Input
 from classes.Schedule import Schedule
 from classes.Submission import Submission
 
+from datetime import datetime
+
 
 def main():
 
@@ -10,14 +12,15 @@ def main():
 
     # ALL THE FILES
     for file_name in file_names:
-        print(f'starting file {file_name}')
+        start = datetime.now().time()
+        print(f'starting file {file_name} at {start}')
 
         # read in the input
-        input: Input = in_reader.open_file(file_name=file_name)
+        challenge_input: Input = in_reader.open_file(file_name=file_name)
 
         # create all schedules
         schedules = []
-        for intersection in input.intersections:
+        for intersection in challenge_input.intersections:
 
             # create dictionary to hold street name and time
             street_time = []  # String array
@@ -33,13 +36,13 @@ def main():
             schedules.append(new_schedule)
 
         # create submission object
-        num_intersections = len(input.intersections)
+        num_intersections = len(challenge_input.intersections)
         submission = Submission(num_intersections, schedules)
 
         # write the output file in /data
-        out_writer.write_file(file_name=file_name, input=submission)
+        out_writer.write_file(file_name=file_name, submission_output=submission)
 
-        print(f'done with file {file_name}')
+        print(f'done with file {file_name} ({datetime.now().time()})')
 
 
 if __name__ == '__main__':

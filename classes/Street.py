@@ -1,6 +1,6 @@
 class Street:
-    def __init__(self, id, origin, finish, length):
-        self.id = id
+    def __init__(self, street_id, origin, finish, length):
+        self.street_id = street_id
         self.origin = origin
         self.finish = finish
         self.length = length

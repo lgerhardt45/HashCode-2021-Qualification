@@ -13,10 +13,10 @@ def open_file(file_name: str) -> Input:
 
     cars = []
     streets = []
-    traffic_lights = []
     intersections = []
 
     with open(in_path, mode='r', encoding='utf8', newline='\n') as in_file:
+
         # get all lines stripped
         lines = [line.rstrip('\n') for line in in_file]
 
@@ -28,7 +28,7 @@ def open_file(file_name: str) -> Input:
         nr_cars = int(first_line[3])
         bonus_points = int(first_line[4])
 
-        # streets
+        # STREETS
         for input_index in range(1, nr_streets+1): # the next n (number of streets) lines are streets
             street_line = lines[input_index].split(' ')
 
@@ -38,14 +38,14 @@ def open_file(file_name: str) -> Input:
             length = int(street_line[3])
 
             street = Street(
-                id=street_id,
+                street_id=street_id,
                 origin=origin_id,
                 finish=finish_id,
                 length=length,
             )
             streets.append(street)
 
-        # cars
+        # CARS
         car_index = 0
         for input_index in range(nr_streets+1, len(lines)):
             car_line = lines[input_index].split(' ')
@@ -69,13 +69,6 @@ def open_file(file_name: str) -> Input:
 
             cars.append(car)
 
-    input_data = Input(sim_duration=sim_duration,
-                       cars=cars,
-                       streets=streets,
-                       traffic_lights=traffic_lights,
-                       intersections=intersections
-                       )
-
     # INTERSECTIONS
     for intersection_index in range(0, nr_intersections):
 
@@ -85,15 +78,16 @@ def open_file(file_name: str) -> Input:
                 incoming_streets.append(street)
 
         intersection = Intersection(
-            id=intersection_index,
-            nrIncomingStreets=len(incoming_streets),
-            incomingStreets=incoming_streets
+            intersection_id=intersection_index,
+            nr_incoming_streets=len(incoming_streets),
+            incoming_streets=incoming_streets
         )
 
         intersections.append(intersection)
 
+    input_data = Input(sim_duration=sim_duration,
+                       cars=cars,
+                       streets=streets,
+                       intersections=intersections
+                       )
     return input_data
-
-
-if __name__ == '__main__':
-    open_file('a')
