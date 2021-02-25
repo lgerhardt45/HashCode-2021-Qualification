@@ -16,7 +16,7 @@ def main():
         street_time = []  # String array
         for street in intersection.incomingStreets:
             time = str(1)  # tbd
-            street_time.append(street + ' ' + time)   # as a String
+            street_time.append(street.id + ' ' + time)   # as a String
 
         # create new schedule object
         new_schedule = Schedule(intersection.id,
