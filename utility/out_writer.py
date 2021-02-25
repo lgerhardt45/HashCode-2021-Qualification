@@ -16,7 +16,7 @@ def convert_input(submission: Submission):
     str_list = [str(submission.nr_intersections) + "\n"]
     for schedule in submission.schedules:
         str_list.append(str(schedule.intersection_id) + "\n")
-        str_list.append(str(schedule.numIncomingStreets) + "\n")
+        str_list.append(str(schedule.num_incoming_streets) + "\n")
         for street in schedule.street_time:
             str_list.append(street + "\n")
     return ''.join(str_list)

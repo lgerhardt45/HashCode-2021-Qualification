@@ -24,13 +24,13 @@ def main():
 
             # create dictionary to hold street name and time
             street_time = []  # String array
-            for street in intersection.incomingStreets:
+            for street in intersection.incoming_streets:
                 time = str(1)  # tbd
-                street_time.append(street.id + ' ' + time)   # as a String
+                street_time.append(street.street_id + ' ' + time)   # as a String
 
             # create new schedule object
-            new_schedule = Schedule(intersection.id,
-                                    intersection.nrIncomingStreets,
+            new_schedule = Schedule(intersection.intersection_id,
+                                    intersection.nr_incoming_streets,
                                     street_time)
             # add new schedule object to schedule array
             schedules.append(new_schedule)
