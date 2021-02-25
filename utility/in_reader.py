@@ -1,6 +1,6 @@
 from classes.Car import Car
 from classes.Street import Street
-from classes.TrafficLight import TrafficLight
+from classes.Intersection import Intersection
 from classes.Input import Input
 
 import os
@@ -10,8 +10,6 @@ def open_file(file_name: str) -> Input:
 
     base_path = os.path.dirname(os.getcwd())
     in_path = os.path.join(base_path, 'data', 'in', f'{file_name}.txt')
-
-
 
     cars = []
     streets = []
@@ -34,10 +32,10 @@ def open_file(file_name: str) -> Input:
         for input_index in range(1, nr_streets+1): # the next n (number of streets) lines are streets
             street_line = lines[input_index].split(' ')
 
-            origin_id = street_line[0]
-            finish_id = street_line[1]
+            origin_id = int(street_line[0])
+            finish_id = int(street_line[1])
             street_id = street_line[2]
-            length = street_line[3]
+            length = int(street_line[3])
 
             street = Street(
                 id=street_id,
@@ -78,6 +76,24 @@ def open_file(file_name: str) -> Input:
                        traffic_lights=traffic_lights,
                        intersections=intersections
                        )
+
+    # INTERSECTIONS
+    for intersection_index in range(0, nr_intersections):
+        # 0 londres incoming, 1
+        # 1 amsterdam, athen, 2
+        incoming_streets = []
+        for street in streets:
+            if street.finish == intersection_index:
+                incoming_streets.append(street)
+
+        intersection = Intersection(
+            id=intersection_index,
+            nrIncomingStreets=len(incoming_streets),
+            incomingStreets=incoming_streets
+        )
+
+        intersections.append(intersection)
+
 
 
     return input_data
