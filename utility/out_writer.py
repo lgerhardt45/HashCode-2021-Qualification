@@ -8,3 +8,13 @@ def write_file(input):
 
     with open(out_path) as out_file:
         out_file.write(input) # does this work?
+
+def convertInput(submission):
+    #naive approach
+    submission_text = str(submission.numIntersections) + "\n"
+    for schedule in submission.schedules:
+        submission_text + schedule.intersection_id + "\n"
+        submission_text + schedule.numIncomingStreets + "\n"
+        for street in schedule.street_time:
+            submission_text + street + "\n"
+    return submission_text
