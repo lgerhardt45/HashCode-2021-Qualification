@@ -5,8 +5,11 @@ from classes.Submission import Submission
 
 
 def main():
+
+    file_name = 'a'
+
     # read in the input
-    input: Input = in_reader.open_file('a')
+    input: Input = in_reader.open_file(file_name=file_name)
 
     # create all schedules
     schedules = []
@@ -30,7 +33,7 @@ def main():
     submission = Submission(num_intersections, schedules)
 
     # write the output file in /data
-    out_writer.write_file(submission)
+    out_writer.write_file(file_name=file_name, input=submission)
 
 
 if __name__ == '__main__':

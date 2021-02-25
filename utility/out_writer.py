@@ -5,10 +5,10 @@ from classes.Schedule import Schedule
 from classes.Input import Input
 
 
-def write_file(input):
+def write_file(file_name: str, input: Submission):
     input_text = convertInput(input)
     base_path = os.path.dirname(os.getcwd())  # get the base directory
-    out_path = os.path.join(base_path, 'data', 'out', 'out_file.txt')  # use os.path.join (works better across system)
+    out_path = os.path.join(base_path, 'data', 'out', f'out_file_{file_name}.txt')
 
     with open(out_path, mode="w") as out_file:
         out_file.write(input_text) # does this work?
