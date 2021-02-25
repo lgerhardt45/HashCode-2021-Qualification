@@ -1,19 +1,16 @@
-import os
-
-
-def open_file():
-    base_path = os.path.dirname(os.getcwd())
-    in_path = os.path.join(base_path, 'in', 'a_example')
-
-    with open(in_path) as in_file:
-        content = in_file.read()
-        print(content)
+from utility import in_reader, out_writer
+from classes import Input
 
 def main():
-    open_file()
+    # read in the input
+    input: Input = in_reader.open_file('a')
+
+    # do cool stuff here!!
+
+
+    # write the output file in /data
+    out_writer.write_file(input=stuff)
+
 
 if __name__ == '__main__':
     main()
-
-# Hey
-# Moin moin
