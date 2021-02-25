@@ -15,13 +15,22 @@ def write_file(input):
 
 def convertInput(submission):
     #naive approach
-    submission_text = str(submission.numIntersections) + "\n"
+    #submission_text = str(submission.numIntersections) + "\n"
+    #for schedule in submission.schedules:
+    #    submission_text += str(schedule.intersection_id) + "\n"
+    #    submission_text += str(schedule.numIncomingStreets) + "\n"
+    #    for street in schedule.street_time:
+    #        submission_text += street + "\n"
+    #return submission_text
+
+    #better approach
+    str_list = [str(submission.numIntersections) + "\n"]
     for schedule in submission.schedules:
-        submission_text += str(schedule.intersection_id) + "\n"
-        submission_text += str(schedule.numIncomingStreets) + "\n"
+        str_list.append(str(schedule.intersection_id) + "\n")
+        str_list.append(str(schedule.numIncomingStreets) + "\n")
         for street in schedule.street_time:
-            submission_text += street + "\n"
-    return submission_text
+            str_list.append(street + "\n")
+    return ''.join(str_list)
 
 # test
 if __name__ == "__main__":
