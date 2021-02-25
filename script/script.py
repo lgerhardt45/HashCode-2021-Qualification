@@ -6,34 +6,37 @@ from classes.Submission import Submission
 
 def main():
 
-    file_name = 'a'
+    file_names = ['a', 'b', 'c', 'd', 'e', 'f']
 
-    # read in the input
-    input: Input = in_reader.open_file(file_name=file_name)
+    # ALL THE FILES
+    for file_name in file_names:
 
-    # create all schedules
-    schedules = []
-    for intersection in input.intersections:
+        # read in the input
+        input: Input = in_reader.open_file(file_name=file_name)
 
-        # create dictionary to hold street name and time
-        street_time = []  # String array
-        for street in intersection.incomingStreets:
-            time = str(1)  # tbd
-            street_time.append(street.id + ' ' + time)   # as a String
+        # create all schedules
+        schedules = []
+        for intersection in input.intersections:
 
-        # create new schedule object
-        new_schedule = Schedule(intersection.id,
-                                intersection.nrIncomingStreets,
-                                street_time)
-        # add new schedule object to schedule array
-        schedules.append(new_schedule)
+            # create dictionary to hold street name and time
+            street_time = []  # String array
+            for street in intersection.incomingStreets:
+                time = str(1)  # tbd
+                street_time.append(street.id + ' ' + time)   # as a String
 
-    # create submission object
-    num_intersections = len(input.intersections)
-    submission = Submission(num_intersections, schedules)
+            # create new schedule object
+            new_schedule = Schedule(intersection.id,
+                                    intersection.nrIncomingStreets,
+                                    street_time)
+            # add new schedule object to schedule array
+            schedules.append(new_schedule)
 
-    # write the output file in /data
-    out_writer.write_file(file_name=file_name, input=submission)
+        # create submission object
+        num_intersections = len(input.intersections)
+        submission = Submission(num_intersections, schedules)
+
+        # write the output file in /data
+        out_writer.write_file(file_name=file_name, input=submission)
 
 
 if __name__ == '__main__':
