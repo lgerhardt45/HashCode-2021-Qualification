@@ -12,4 +12,4 @@ Thanks a lot to
 - [@annalena94](https://github.com/annalena94)
 - [@lennoxjay](https://github.com/lennoxjay)
 
-Until next year 💻
+Until next year (or the next hackathon soon?) 💻
