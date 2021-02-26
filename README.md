@@ -1,7 +1,7 @@
-# HashCode-2021-Qualification
+# HashCode 2021 Qualification
 
 
-Team **[Jointify](github.com/lgerhardt45/Jointify)** is back at it again and wants to claim the [HashCode 2021 Munich Hub](https://codingcompetitions.withgoogle.com/hashcode) crown. We truly enjoyed our first insights into competitive coding and were happy to end up with >7.000.000 points on the scoreboard! 👑
+Team **[Jointify](https://github.com/lgerhardt45/Jointify)** is back at it again and wants to claim the [HashCode 2021 Munich Hub](https://codingcompetitions.withgoogle.com/hashcode) crown. We truly enjoyed our first insights into competitive coding and were happy to end up with >7.000.000 points on the scoreboard! 👑
 
 
 ![Watching the live stream after the event](/after_event_celebration/round_up_img.jpeg)
